@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	int i, n;
+	
+	printf("How many characters will your string contain: ");
+	scanf("%d", &n);
+	
+	getchar();
+	
+	int l = n - 1;
+	
+	char reversed[n+1];
+	
+	char *str = malloc((n+1)*sizeof(char));
+
+	printf("Enter the string: ");
+	fgets(str, n+1, stdin);
+	
+	for(i = 0; i < n; i++)
+	{
+		reversed[i] = *(str + l);
+		l -= 1;
+	}
+	
+	reversed[n] = '\0';
+	
+	printf("Reversed string: %s", reversed);
+	
+	free (str);
+	
+	return 0;
+}
