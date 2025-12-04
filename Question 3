@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct student {
+	char name[50];
+	int marks;
+};
+
+int main()
+{
+	int i, n;
+	
+	printf("how many students: ");
+	scanf("%d", &n);
+	
+	struct student *s = malloc(n * sizeof(struct student));
+	
+	for(i = 0; i < n; i++)
+	{
+		printf("Enter student %d name: ", i+1);
+		scanf("%s", s[i].name);
+		printf("Enter student %d marks: ", i+1);
+		scanf("%d", &s[i].marks);
+	}
+	
+	printf("\nStudents who scored more than 75 marks: \n");
+	
+	for(i = 0; i < n; i++)
+	{
+		if(s[i].marks > 75){
+			printf("%s: %d\n", s[i].name, s[i].marks);
+		}
+	}
+
+	free(s);
+	
+	return 0;
+}
