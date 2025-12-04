@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int palindromeChecker(char str[], int i, int l);
+
+int main()
+{
+	char str[50];
+	
+	printf("Enter a string: ");
+	scanf("%s", str);
+	
+	int i, l;
+	
+	i = 0;
+	l = strlen(str);
+	
+	int output;
+	
+	output = palindromeChecker(str, i, l-1);
+	
+	printf("%d", output);
+	
+	return 0;
+}
+
+int palindromeChecker(char str[], int i, int l)
+{
+	if ( i >= l )
+	{
+		return 1;
+	}
+	
+	if ( str[i] != str[l] )
+	{
+		return 0;
+	}
+	
+	return palindromeChecker(str, i+1, l-1);
+}
